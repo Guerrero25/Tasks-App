@@ -1,0 +1,7 @@
+.tasks-app {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 2em auto;
+  max-width: 1200px;
+}
