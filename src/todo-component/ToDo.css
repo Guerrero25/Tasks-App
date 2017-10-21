@@ -1,29 +1,47 @@
 .container {
   background: linear-gradient(#FDF8B6 98%, #F2CDA7 98%);
-  background-size: 100% 2em;
+  background-size: 100% 3em;
+  background-position: 0 1em;
   border-radius: 5px;
-  box-shadow: 0 2px 6px;
-  padding: 20px 5px 20px 60px;
-  width: 350px;
+  box-shadow: 0 0 10px #F2CDA7;
+  min-height: 6em;
+  padding: 1em;
+  width: 100%;
 }
 
 .title {
   background-color: inherit;
   color: darkred;
   font-size: 1.5em;
-  line-height: 80px;
+  line-height: 2em;
   text-align: left;
 }
 
 .task-list {
   background-color: inherit;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
 }
 
 .task-item {
+  animation: addItem .5s;
   background-color: transparent;
+  font-size: 1.5em;
   line-height: 2em;
   margin-left: 2em;
   position: relative;
+}
+
+@keyframes addItem {
+  from {
+    position: absolute;
+    bottom: -3em;
+  }
+  to {
+    position: relative;
+    bottom: 0;
+  }
 }
 
 .waiting::before {

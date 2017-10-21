@@ -3,5 +3,62 @@
   flex-direction: row;
   justify-content: space-around;
   margin: 2em auto;
-  max-width: 1200px;
+  max-width: 800px;
+}
+
+.tasks-app__todo, .tasks-app__completed {
+  padding:1em;
+}
+
+.tasks-app__todo {
+  width: 70%;
+}
+
+.tasks-app__completed {
+  width: 30%;
+}
+
+.todo__add {
+  margin-top: .2em;
+  width: 100%;
+}
+
+.form__add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: .5em 0;
+  width: 100%;
+}
+
+.text__form__add, .submit__form__add {
+  border-radius: 1em;
+  font-size: 1.5em;
+  line-height: 2em;
+  padding: 0 .5em;
+}
+
+.text__form__add {
+  background-color: #fff;
+  border: 1px solid #F2CDA7;
+  width: 70%;
+}
+
+.text__form__add:focus {
+  outline: 0;
+  box-shadow: 0 0 5px darkred;
+}
+
+.submit__form__add {
+  background-color: darkred;
+  border: none;
+  box-shadow: 0 0 10px #FFCDA7;
+  color: #F2CDA7;
+  cursor: pointer;
+  text-transform: uppercase;
+  width: 6em;
+}
+
+.submit__form__add:active {
+  transform: scale(.9);
 }
