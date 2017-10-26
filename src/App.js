@@ -7,34 +7,59 @@ class App extends Component {
     super()
     this.state = {
       toDo: [],
-      Completeds: []
+      Completeds: [],
+      id: 0
     }
 
     this.handleAddTask = this.handleAddTask.bind(this)
+    this.handleCompleteTask = this.handleCompleteTask.bind(this)
   }
 
   handleAddTask (e) {
     e.preventDefault()
-    let input = document.getElementById('new_task')
+    let input = document.getElementById('new_task').value
     let todo = this.state.toDo
+    let id = this.state.id
 
-    if (input.value !== '') {
+    if (input !== '') {
+      
       const ntask = {
-        id: todo.length,
-        content: input.value
+        id: id,
+        content: input
       }
       todo.push(ntask)
+      id++
       this.setState({
-        toDo: todo
+        toDo: todo,
+        id: id
       })
-      input.value = ''
+      document.getElementById('new_task').value = ''
     }
+  }
+  handleCompleteTask (e) {
+    e.preventDefault()
+    let todo = this.state.toDo
+    let completed = this.state.Completeds
+    let task = e.target.id
+    let completeTask = todo.find( td => {
+      return td.id == task
+    })
+    
+    completed.push(completeTask)
+    todo = todo.filter( t => {
+      return t !== completeTask
+    })
+    this.setState({
+      toDo: todo,
+      Completeds: completed
+    })
   }
   render () {
     return (
       <div className='tasks-app'>
         <section className='tasks-app__todo'>
           <ToDo
+            onClick={this.handleCompleteTask}
             tasks={this.state.toDo}
             title='Tasks To Do'
             type='waiting'

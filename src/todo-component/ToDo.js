@@ -39,7 +39,7 @@ class ToDo extends Component {
   // Helper for build the list's tasks
   listTasks (tasks) {
     return tasks.map(task => {
-      return <li key={task.id} className={'task-item ' + this.props.type} >{task.content}</li>
+      return <li key={task.id} id={task.id} className={'task-item ' + this.props.type} onClick={this.props.onClick} >{task.content}</li>
     })
   }
 }
